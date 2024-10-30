@@ -108,9 +108,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        video {
+        iframe {
             width: 100%;
+            height: 340px;
             border: none;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -133,10 +135,7 @@
             <a href="#" class="view-features">View features</a>
         </div>
         <div class="video-container">
-            <video controls poster="video-thumbnail.png">
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe src="https://www.youtube.com/embed/G0cmfY7qdmY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 </body>
