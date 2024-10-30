@@ -165,6 +165,88 @@
             border: none;
             border-radius: 20px;
         }
+
+        .pricing-section {
+            padding: 100px;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            color: #1e1e2f;
+            border-radius: 20px;
+            padding: 40px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .pricing-card .beta-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #b69dfb;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-card ul li::before {
+            content: '\2713';
+            color: #00e0b5;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .pricing-card .btn-primary {
+            padding: 12px;
+            width: 100%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -187,6 +269,60 @@
         </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/G0cmfY7qdmY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <h2>Our pricing plans</h2>
+        <div class="pricing-plans">
+            <div class="pricing-card">
+                <div class="beta-tag">Beta</div>
+                <h3>Free</h3>
+                <p>To try it out</p>
+                <div class="price">€0 <span>Per month</span></div>
+                <ul>
+                    <li>1 film</li>
+                    <li>3 users per film</li>
+                    <li>500MB storage</li>
+                </ul>
+                <a href="#" class="btn-primary">Try now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="beta-tag">Beta</div>
+                <h3>No-budget</h3>
+                <p>For the basics</p>
+                <div class="price">€10 €0 <span>Per month*</span></div>
+                <ul>
+                    <li>2 active films</li>
+                    <li>10 users per film</li>
+                    <li>1GB storage</li>
+                </ul>
+                <a href="#" class="btn-primary">Try now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="beta-tag">Beta</div>
+                <h3>Indie</h3>
+                <p>For teams</p>
+                <div class="price">€25 €0 <span>Per month*</span></div>
+                <ul>
+                    <li>5 active films</li>
+                    <li>Unlimited users per film</li>
+                    <li>5GB storage</li>
+                </ul>
+                <a href="#" class="btn-primary">Try now</a>
+            </div>
+            <div class="pricing-card">
+                <div class="beta-tag">Beta</div>
+                <h3>Studio</h3>
+                <p>For production companies</p>
+                <div class="price">€60 €0 <span>Per month*</span></div>
+                <ul>
+                    <li>10 active films</li>
+                    <li>Unlimited users per film</li>
+                    <li>10GB storage</li>
+                </ul>
+                <a href="#" class="btn-primary">Try now</a>
+            </div>
         </div>
     </section>
 </body>
