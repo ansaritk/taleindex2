@@ -403,14 +403,110 @@
             width: 100%;
             text-align: center;
         }
-    </style>
+
+        .footer {
+            background-color: #ffffff;
+            color: #1e1e2f;
+            padding: 60px 100px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            color: #ffffff;
+            padding: 50px 100px;
+            text-align: center;
+        }
+
+        .footer nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer nav a:hover {
+            color: #00e0b5;
+        }
+
+        
+        .about-us {
+            margin-top: 30px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-us h3 {
+            color: #1e1e2f;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        #ffffff
+        }
+    
+        .footer {
+            padding: 60px 100px;
+            background-color: #ffffff;
+            color: #1e1e2f;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        .about-us {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+        .about-us h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1e1e2f;
+        }
+        .about-us p {
+            color: #1e1e2f;
+            font-size: 1.1em;
+            line-height: 1.6;
+            line-height: 1.6;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        .footer-nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: #00e0b5;
+        }
+        .footer-copyright {
+            color: #999;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        </style>
 </head>
 <body>
     <header class="header">
         <div class="logo">TaleIndex <span class="beta-tag">Mapping stories</span></div>
         <nav>
             <ul>
-                <li><a href="#">Features</a></li>
+                <li><a href="#" onclick="document.querySelector('.features-container').scrollIntoView({ behavior: 'smooth' });">Features</a></li>
                 <li><a href="#" onclick="document.querySelector('.pricing-section').scrollIntoView({ behavior: 'smooth' });">Pricing</a></li>
                 <li><a href="#" class="btn-primary">Try the Beta</a></li>
                 <li hidden><a href="#" class="btn-secondary" >Login</a></li>
@@ -554,5 +650,20 @@
             </div>
         </div>
     </section>
+
+  <footer class="footer">
+        <div class="about-us">
+            <h3>About Us</h3>
+            <p>We’re a passionate team of technology experts, creatives, and strategists dedicated to transforming the way marketing teams work together. With backgrounds in AI, marketing, and operations, we built Tale Index to address the most pressing issues in ad creation—team misalignment, inconsistent messaging, and lack of emotional engagement insights. Our mission is simple: to help brands deliver ads that connect and campaigns that perform.</p>
+        </div>
+        <nav>
+            <ul class="footer-nav">
+                <li><a href="#" onclick="document.querySelector('.features-container').scrollIntoView({ behavior: 'smooth' });">Features</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+            </ul>
+        </nav>
+        <p class="footer-copyright">&copy; 2024 TaleIndex. All rights reserved.</p>
+    </footer>
 </body>
 </html>
