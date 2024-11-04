@@ -241,6 +241,87 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .benefits-section {
+            padding: 100px;
+            background-color: #4a4a58;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+
+        .benefits-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .benefits-card {
+            background: #ffffff;
+            color: #1e1e2f;
+            border-radius: 20px;
+            padding: 40px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .benefits-card .beta-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #b69dfb;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .benefits-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .benefits-card p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .benefits-card .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .benefits-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+        }
+
+        .benefits-card ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-card ul li::before {
+            content: '\2713';
+            color: #00e0b5;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .benefits-card .btn-primary {
+            padding: 12px;
+            width: 100%;
+            text-align: center;
+        }
         .pricing-section {
             padding: 100px;
             background-color: #1e1e2f;
@@ -330,9 +411,9 @@
         <nav>
             <ul>
                 <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a href="#" onclick="document.querySelector('.pricing-section').scrollIntoView({ behavior: 'smooth' });">Pricing</a></li>
                 <li><a href="#" class="btn-primary">Try the Beta</a></li>
-                <li><a href="#" class="btn-secondary">Login</a></li>
+                <li hidden><a href="#" class="btn-secondary" >Login</a></li>
             </ul>
         </nav>
     </header>
@@ -347,24 +428,24 @@
         </div>
     </section>
   
-    <section class="pricing-section" style="background-color: #4a4a58;">
+    <section class="benefits-section">
         <h2>Key benefits for you</h2>
-        <div class="pricing-plans">
-            <div class="pricing-card">
+        <div class="benefits-plans">
+            <div class="benefits-card">
                 <h3>Successful Stories</h3>
                 <ul>
                     <li>Brand Comms - Stories say exactly what you want to say</li>
                     <li>Customer Interaction - Analysis of brief, script and content produced in real time.</li>
                 </ul>
             </div>
-            <div class="pricing-card">
+            <div class="benefits-card">
                 <h3>Team Alignment & Proof of Work</h3>
                 <ul>
                     <li>All Aboard & Functional</li>
                     <li>Each Stakeholder approves each step, comments & reviews. Can view records of all interactions , analysis & approvals.</li>
                 </ul>
             </div>
-            <div class="pricing-card">
+            <div class="benefits-card">
                 <h3>Time & Cost Savings</h3>
                 <ul>
                     <li>Perfect Save, No Waste</li>
