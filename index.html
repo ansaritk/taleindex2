@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -567,8 +567,8 @@
             margin-left: 10px;
         }
     .custom-alert {
-            position: fixed;
-            top: 20%;
+            position: absolute;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background: #00e0b5;
@@ -591,7 +591,7 @@
             <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#" onclick="document.querySelector('.pricing-section').scrollIntoView({ behavior: 'smooth' });">Pricing</a></li>
-                <li><a href="#" class="btn-primary">Try the Beta</a></li>
+                <li><a href="#" class="btn-primary" onclick="event.preventDefault(); openWaitlistModal();">Try the Beta</a></li>
                 <li hidden><a href="#" class="btn-secondary" >Login</a></li>
             </ul>
         </nav>
@@ -729,7 +729,7 @@
                 </ul>
                 <a hidden href="#" class="btn-primary">Try now</a>
             </div>
-        <button class="btn-primary" onclick="openWaitlistModal();">Signup for waitlist</button>
+        <a href="#" class="btn-primary" onclick="event.preventDefault(); openWaitlistModal();">Signup for waitlist</a>
 <div id="waitlist-modal" class="modal">
     <h2 class="modal-title">Signup for Waitlist</h2>
         <form id="waitlist-form">
@@ -744,10 +744,11 @@
         <div style="display: flex; flex-direction: column; gap: 20px;">
             <label for="profession">Your Profession:</label>
             <input type="text" id="profession" name="profession" placeholder="Enter your profession" required class="input-field">
-        </div>
+        </div>
         <button type="submit" class="submit-button">Submit</button>
         <button type="button" onclick="closeModal()" class="cancel-button">Cancel</button>
-    </form></div>
+      </form>
+</div>
 <div id="modal-overlay" class="modal-overlay"></div>
         </div>
     </section>
@@ -770,6 +771,7 @@
         function openWaitlistModal() {
             document.getElementById('waitlist-modal').style.display = 'block';
             document.getElementById('modal-overlay').style.display = 'block';
+            document.getElementById('waitlist-form').reset();
         }
         function closeModal() {
             document.getElementById('waitlist-modal').style.display = 'none';
@@ -786,7 +788,9 @@
                 body: new URLSearchParams({ 'name': name, 'email': email, 'profession': profession })
             }).then(response => {
                 showCustomAlert('Thank you for signing up! We have added you to the waitlist.');
-                closeModal();
+                setTimeout(() => {
+                    closeModal();
+                }, 3000);
             }).catch(error => {
                 alert('Error occurred, please try again later.');
                 console.error('Error!', error.message);
@@ -798,7 +802,11 @@
             alertBox.className = 'custom-alert';
             alertBox.innerText = message;
 
-            document.body.appendChild(alertBox);
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.parentNode.insertBefore(alertBox, submitButton.nextSibling);
+
+            const formContainer = document.getElementById('waitlist-form');
+            formContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
 
             setTimeout(() => {
                 alertBox.style.opacity = '1';
@@ -806,9 +814,9 @@
 
             setTimeout(() => {
                 alertBox.style.opacity = '0';
+                formContainer.style.backgroundColor = '#ffffff';
                 setTimeout(() => alertBox.remove(), 600);
             }, 3000);
         }
-    
-
+  </script>
 </html>
