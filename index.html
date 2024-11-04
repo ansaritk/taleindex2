@@ -507,7 +507,65 @@
             margin-top: 30px;
             font-size: 0.9em;
         }
-        </style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 500;
+        }
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1e1e2f;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            background: #00e0b5;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        .cancel-button {
+            background: #ccc;
+            color: #333;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -622,41 +680,59 @@
         <h2>Our pricing plans</h2>
         <div class="pricing-plans">
             <div class="pricing-card">
-                <div class="beta-tag">Beta</div>
                 <h3>Beginner</h3>
                 <p>For the basics</p>
-                <div class="price">€40 <span>Per month*</span></div>
+                <div class="price">€39 <span>Per month</span></div>
                 <ul>
                     <li>2 active project</li>
-                    <li>10 users per film</li>
+                    <li>10 report analysis</li>
                     <li>1GB storage</li>
                 </ul>
-                <a href="#" class="btn-primary">Try now</a>
+                <a hidden href="#" class="btn-primary">Try now</a>
             </div>
             <div class="pricing-card">
-                <div class="beta-tag">Beta</div>
                 <h3>Premium</h3>
                 <p>For teams</p>
-                <div class="price">€80 <span>Per month</span></div>
+                <div class="price">€79 <span>Per month</span></div>
                 <ul>
-                    <li>5 active project</li>
-                    <li>50 reports</li>
+                    <li>Unlimited active project</li>
+                    <li>50 report analyis</li>
                     <li>5GB storage</li>
                 </ul>
-                <a href="#" class="btn-primary">Try now</a>
+                <a hidden href="#" class="btn-primary">Try now</a>
             </div>
             <div class="pricing-card">
-                <div class="beta-tag">Beta</div>
                 <h3>Pro</h3>
                 <p>For production companies</p>
-                <div class="price">€100 <span>Per month</span></div>
+                <div class="price">€99 <span>Per month</span></div>
                 <ul>
                     <li>Unlimited active projeccts</li>
                     <li>Unlimited reports</li>
                     <li>10GB storage</li>
                 </ul>
-                <a href="#" class="btn-primary">Try now</a>
+                <a hidden href="#" class="btn-primary">Try now</a>
             </div>
+        <a href="#" class="btn-primary" onclick="openWaitlistModal()">Signup for waitlist</a>
+<div id="waitlist-modal" class="modal">
+    <h3 class="modal-title">Signup for Waitlist</h3>
+    
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <label for="profession">Your Profession:</label>
+            <input type="text" id="profession" name="profession" placeholder="Enter your profession" required class="input-field">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required class="input-field">
+        </div>
+        <div style="margin-bottom:15px;">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required class="input-field">
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+        <button type="button" onclick="closeModal()" class="cancel-button">Cancel</button>
+    </form>
+</div>
+<div id="modal-overlay" class="modal-overlay"></div>
         </div>
     </section>
 
@@ -674,5 +750,32 @@
         </nav>
         <p class="footer-copyright">&copy; 2024 TaleIndex. All rights reserved.</p>
     </footer>
-</body>
+<script>
+        function openWaitlistModal() {
+            document.getElementById('waitlist-modal').style.display = 'block';
+            document.getElementById('modal-overlay').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('waitlist-modal').style.display = 'none';
+            document.getElementById('modal-overlay').style.display = 'none';
+        }
+        document.getElementById('waitlist-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const profession = document.getElementById('profession').value;
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwAgoR1ey7dYfrOk2I80GbKoR8WB1TZs1-6NH-zL1sZC4rqVwurXfxpQqkoh8lw9vpZIQ/exec';
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams({ 'name': name, 'email': email, 'profession': profession })
+            }).then(response => {
+                alert('Thank you for signing up!');
+                closeModal();
+            }).catch(error => {
+                alert('Error occurred, please try again later.');
+                console.error('Error!', error.message);
+            });
+        });
+</script>
+
 </html>
