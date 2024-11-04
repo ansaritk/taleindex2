@@ -128,16 +128,31 @@
         }
 
         .hero-text h1 {
+            
             font-size: 4em;
             line-height: 1.2;
             font-weight: 800;
+            margin-bottom: 30px;
+        
+        }
+        .hero-text h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .hero-text p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
             margin-bottom: 30px;
         }
 
         .highlight {
             background-color: #00e0b5;
             color: #ffffff;
-            padding: 6px 12px;
+            padding: 1px 6px;
             border-radius: 5px;
         }
 
@@ -516,8 +531,9 @@
     
     <section class="hero">
         <div class="hero-text">
-            <h1>From <span class="highlight">script</span> to <span class="highlight">call sheet</span> easily and efficiently</h1>
-            <a href="#" class="view-features">View features</a>
+            <h2>Create Ads that Captivate, Connect, and Convert</h2>
+            <p>Align your teams, <span class="highlight">optimize</span> your storytelling, and <span class="highlight">measure</span> emotional impact — all in <span class="highlight">one</span> platform.</p>
+            <a href="#" onclick="document.querySelector('.features-container').scrollIntoView({ behavior: 'smooth' });" class="view-features">View features</a>
         </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/G0cmfY7qdmY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
