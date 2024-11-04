@@ -166,34 +166,79 @@
             border-radius: 20px;
         }
 
-        .features-section {
-            padding: 100px;
-            background-color: #00e0b5;
-            color: #ffffff;
-            text-align: left;
+        .features-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding: 100px 80px;
+        }
+        
+        .feature {
             display: flex;
             align-items: center;
-            gap: 50px;
-        }
-
-        .features-section .laptop-img {
-            max-width: 600px;
+            gap: 40px;
+            padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
         }
 
-        .features-content {
-            max-width: 600px;
+        .feature:nth-child(1) {
+            background-color: #8fe3cf;
         }
 
-        .features-content h2 {
-            font-size: 3em;
+        .feature:nth-child(2) {
+            background-color: #d1e8ff;
+        }
+
+        .feature:nth-child(3) {
+            background-color: #c3b1e1;
+        }
+
+        .feature:nth-child(4) {
+            background-color: #ffe5b4;
+        }
+
+        .feature:nth-child(5) {
+            background-color: #b4d8ff;
+        }
+
+        .feature:nth-child(6) {
+            background-color: #f3c4fb;
+        }
+
+        .feature:nth-child(7) {
+            background-color: #ffcccb;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-content {
+            max-width: 500px;
+        }
+        
+        .feature-content h3 {
+            font-size: 2em;
             margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .feature-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
         }
 
-        .features-content p {
-            font-size: 1.2em;
-            line-height: 1.6;
+        .feature img {
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .pricing-section {
@@ -302,11 +347,61 @@
         </div>
     </section>
 
-    <section class="features-section">
-        <img class="laptop-img" src="https://via.placeholder.com/600x400" alt="Feature Overview">
-        <div class="features-content">
-            <h2>Overview</h2>
-            <p>TaleIndex makes managing the production of your story simple by taking you from script to call sheet easily and efficiently, helping you find actors, track your budget, and produce a suggested shooting schedule. TaleIndex automatically generates your call sheet, saving you time on manual creation, and handles sending it out to cast and crew as well.</p>
+    <section class="features-container">
+        <div class="feature">
+            <div class="feature-content">
+                <h3>Overview</h3>
+                <p>Tale Index is a powerful platform that synchronizes every stage of your marketing campaign. From concept to final delivery, keep your team aligned and make sure your ads connect with audiences on an emotional level.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Overview Screenshot">
+        </div>
+
+        <div class="feature">
+            <img src="https://via.placeholder.com/600x400" alt="Brief Analysis & Information Validation Screenshot">
+            <div class="feature-content">
+                <h3>Brief Analysis & Information Validation</h3>
+                <p>Start with clarity. Upload client briefs and align on goals instantly. Our AI-powered platform analyzes briefs and builds up a summary for consistency, ensuring everyone is on the same page from the start.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h3>Concept with Budget Approval</h3>
+                <p>Tale Index keeps everyone in sync through the creative process. Share concepts, gather feedback, and get approvals—our collaboration tools streamline the workflow and keep everything moving.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Concept with Budget Approval Screenshot">
+        </div>
+
+        <div class="feature">
+            <img src="https://via.placeholder.com/600x400" alt="Script Analysis and Approval Screenshot">
+            <div class="feature-content">
+                <h3>Script Analysis and Approval</h3>
+                <p>Make sure your message resonates. Our proprietary algorithm analyzes sensitivity and key metrics such as emotions, engagement, brand positioning, helping you fine-tune ads to connect with your audience’s emotions and make a lasting impact.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h3>Storyboarding and Final Production</h3>
+                <p>From creating storyboards to audiovisual production, ensure each stage reflects the core message. Tale Index brings your team together to create cohesive, compelling content that aligns with campaign goals.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Storyboarding and Final Production Screenshot">
+        </div>
+
+        <div class="feature">
+            <img src="https://via.placeholder.com/600x400" alt="Budget Approval & Optimization Screenshot">
+            <div class="feature-content">
+                <h3>Budget Approval & Optimization</h3>
+                <p>Easy to track the Production Budget, categorising it into Materials, Location & People for easy reference, follow up, and approval.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-content">
+                <h3>Final Delivery with Neuromarketing Insights</h3>
+                <p>Make sure your message resonates. Our neuromarketing technology analyzes emotional responses, helping you fine-tune ads to connect with your audience’s emotions and make a lasting impact.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400" alt="Final Delivery with Neuromarketing Insights Screenshot">
         </div>
     </section>
 
@@ -329,7 +424,7 @@
                 <div class="beta-tag">Beta</div>
                 <h3>No-budget</h3>
                 <p>For the basics</p>
-                <div class="price">€10 €0 <span>Per month*</span></div>
+                <div class="price">€10 €<span>Per month*</span></div>
                 <ul>
                     <li>2 active films</li>
                     <li>10 users per film</li>
@@ -341,7 +436,7 @@
                 <div class="beta-tag">Beta</div>
                 <h3>Indie</h3>
                 <p>For teams</p>
-                <div class="price">€25 €0 <span>Per month*</span></div>
+                <div class="price">€25 <span>Per month*</span></div>
                 <ul>
                     <li>5 active films</li>
                     <li>Unlimited users per film</li>
@@ -353,7 +448,7 @@
                 <div class="beta-tag">Beta</div>
                 <h3>Studio</h3>
                 <p>For production companies</p>
-                <div class="price">€60 €0 <span>Per month*</span></div>
+                <div class="price">€60 <span>Per month*</span></div>
                 <ul>
                     <li>10 active films</li>
                     <li>Unlimited users per film</li>
