@@ -628,15 +628,27 @@
           .benefits-plans {
             width: 100%; /* Take full width of the container */
            }
-        
-          .feature {
-            flex-direction: column;
-            gap: 1.5rem;
-          }
-        
-          .feature-content {
-            padding: 0;
-          }
+            
+            .features-container {
+                padding: 20px 10px;
+            }
+    
+            .feature {
+                flex-direction: column; /* Stack content vertically */
+                gap: 20px;
+                padding: 20px; /* Reduced padding for mobile */
+                align-items: center; /* Center content for balanced look */
+            }
+    
+            .feature-content {
+                width: 100%; /* Full-width content on mobile */
+                text-align: center; /* Center text for mobile */
+            }
+    
+            .feature img {
+                width: 100%; /* Full-width image to align with text content */
+                height: auto; /* Maintain aspect ratio */
+            }
         
           .btn-primary {
             width: 100%;
@@ -669,12 +681,10 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
           }
-        
           .feature {
             flex-direction: row;
             gap: 3rem;
           }
-        
           .feature-content {
             padding-right: 2rem;
           }
