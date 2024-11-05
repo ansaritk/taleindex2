@@ -458,9 +458,6 @@
             font-size: 1.5em;
             margin-bottom: 15px;
         }
-        #ffffff
-        }
-    
         .footer {
             padding: 60px 100px;
             background-color: #ffffff;
@@ -582,7 +579,96 @@
             transition: opacity 0.5s ease;
             z-index: 10000;
         }
-        </style>
+        /* Mobile-first styles */
+        @media (max-width: 767px) {
+          .header {
+            padding: 1rem;
+          }
+        
+          .logo h1 {
+            font-size: 1.5rem;
+          }
+        
+          .hero {
+            padding: 2rem 1rem;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .hero-text {
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+        
+          .hero-text h1 {
+            font-size: 1.75rem;
+          }
+        
+          .hero-text p {
+            font-size: 1rem;
+          }
+        
+          .video-container {
+            width: 100%;
+          }
+        
+          .benefits-plans,
+          .pricing-plans {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        
+          .feature {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+        
+          .feature-content {
+            padding: 0;
+          }
+        
+          .btn-primary {
+            width: 100%;
+          }
+        }
+
+        /* Tablet and desktop styles */
+        @media (min-width: 768px) {
+          .header {
+            padding: 1.5rem 2rem;
+          }
+        
+          .hero {
+            padding: 4rem;
+            flex-direction: row;
+            align-items: center;
+          }
+        
+          .hero-text {
+            flex: 1;
+            padding-right: 3rem;
+          }
+        
+          .video-container {
+            flex: 1;
+          }
+        
+          .benefits-plans,
+          .pricing-plans {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+          }
+        
+          .feature {
+            flex-direction: row;
+            gap: 3rem;
+          }
+        
+          .feature-content {
+            padding-right: 2rem;
+          }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
