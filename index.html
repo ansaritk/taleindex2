@@ -6,605 +6,673 @@
     <title>TaleIndex</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaleIndex</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-    body {
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #1e1e2f;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            overflow-x: hidden;
+        }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 100px;
-        background-color: #ffffff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .logo {
-        font-size: 2em;
-        font-weight: 800;
-        color: #333;
-    }
-
-    .beta-tag {
-        font-size: 0.8em;
-        color: #b69dfb;
-        background: #f0f0ff;
-        padding: 2px 8px;
-        border-radius: 5px;
-        margin-left: 8px;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #1e1e2f;
-        font-weight: 600;
-        transition: color 0.3s;
-    }
-
-    nav a:hover {
-        color: #00E0B5;
-    }
-
-    .btn-primary {
-        background: #00e0b5;
-        color: #ffffff;
-        padding: 12px 28px;
-        border-radius: 50px;
-        font-weight: 800;
-        text-decoration: none;
-        transition: background 0.3s;
-    }
-
-    .btn-primary:hover {
-        background: #00c79d;
-    }
-
-    .btn-secondary {
-        border: 2px solid #00e0b5;
-        color: #00e0b5;
-        padding: 10px 28px;
-        border-radius: 50px;
-        font-weight: 800;
-        text-decoration: none;
-        transition: background 0.3s, color 0.3s;
-    }
-
-    .btn-secondary:hover {
-        background: #00e0b5;
-        color: #ffffff;
-    }
-
-    .hero {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 120px;
-        background: linear-gradient(135deg, #ffffff 30%, #f8f9fc 100%);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero::before, .hero::after {
-        content: '';
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0.2;
-    }
-
-    .hero::before {
-        width: 400px;
-        height: 400px;
-        background: #00e0b5;
-        top: -150px;
-        left: -150px;
-    }
-
-    .hero::after {
-        width: 500px;
-        height: 500px;
-        background: #b69dfb;
-        bottom: -200px;
-        right: -200px;
-    }
-
-    .hero-text {
-        max-width: 600px;
-        text-align: left;
-        z-index: 1;
-        margin-right: 50px;
-    }
-
-    .hero-text h1 {
-        font-size: 4em;
-        line-height: 1.2;
-        font-weight: 800;
-        margin-bottom: 30px;
-    }
-
-    .hero-text h2 {
-        font-size: 2.5em;
-        font-weight: 600;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    .hero-text p {
-        font-size: 1.2em;
-        line-height: 1.5;
-        color: #555;
-        margin-bottom: 30px;
-    }
-
-    .highlight {
-        background-color: #00e0b5;
-        color: #ffffff;
-        padding: 1px 6px;
-        border-radius: 5px;
-    }
-
-    .view-features {
-        display: inline-block;
-        margin-top: 30px;
-        color: #1e1e2f;
-        font-weight: 600;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    .video-container {
-        width: 50%;
-        max-width: 800px;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    iframe {
-        width: 100%;
-        height: 450px;
-        border: none;
-        border-radius: 20px;
-    }
-
-    .features-container {
-        display: flex;
-        flex-direction: column;
-        gap: 60px;
-        padding: 100px 80px;
-        background-color: #ffffff;
-    }
-    
-    .feature {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
-    }
-
-    .feature:nth-child(1) {
-        background-color: #8fe3cf;
-    }
-
-    .feature:nth-child(2) {
-        background-color: #d1e8ff;
-    }
-
-    .feature:nth-child(3) {
-        background-color: #c3b1e1;
-    }
-
-    .feature:nth-child(4) {
-        background-color: #ffe5b4;
-    }
-
-    .feature:nth-child(5) {
-        background-color: #b4d8ff;
-    }
-
-    .feature:nth-child(6) {
-        background-color: #f3c4fb;
-    }
-
-    .feature:nth-child(7) {
-        background-color: #ffcccb;
-    }
-
-    .feature:hover {
-        transform: translateY(-10px);
-    }
-    
-    .feature:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-    
-    .feature-content {
-        max-width: 500px;
-    }
-    
-    .feature-content h3 {
-        font-size: 2em;
-        margin-bottom: 20px;
-        color: #333;
-    }
-    
-    .feature-content p {
-        font-size: 1.1em;
-        line-height: 1.6;
-        color: #555;
-    }
-
-    .feature img {
-        max-width: 400px;
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .benefits-section {
-        padding: 50px 20px; /* Reduced padding for better fitting on mobile */
-        background-color: #4a4a58;
-        color: #ffffff;
-        text-align: center;
-    }
-
-    .benefits-section h2 {
-        font-size: 3em;
-        margin-bottom: 50px;
-    }
-
-    .benefits-plans {
-        display: flex;
-        justify-content: center; /* Center the cards */
-        flex-wrap: wrap;
-        gap: 20px; /* Smaller gap for better look on mobile */
-        width: 100%; /* Full width on mobile */
-        margin: 0 auto; /* Center the section */
-    }
-
-    .benefits-card {
-        background: #ffffff;
-        color: #1e1e2f;
-        border-radius: 20px;
-        padding: 20px; /* Reduced padding for better fitting */
-        width: 100%; /* Full width for small screens */
-        max-width: 400px; /* Restrict max width for larger screens */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        position: relative;
-        margin: 0 auto; /* Center the card horizontally */
-    }
-
-    .benefits-card h3 {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .benefits-card ul {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 30px;
-        text-align: left;
-    }
-
-    .benefits-card ul li {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-    }
-
-    .benefits-card ul li::before {
-        content: '\2713';
-        color: #00e0b5;
-        font-weight: 800;
-        margin-right: 10px;
-    }
-
-    .benefits-card .btn-primary {
-        padding: 12px;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Mobile-first styles */
-    @media (max-width: 767px) {
         .header {
-            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 100px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .beta-tag {
+            font-size: 0.8em;
+            color: #b69dfb;
+            background: #f0f0ff;
+            padding: 2px 8px;
+            border-radius: 5px;
+            margin-left: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1e1e2f;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00E0B5;
+        }
+
+        .btn-primary {
+            background: #00e0b5;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #00c79d;
+        }
+
+        .btn-secondary {
+            border: 2px solid #00e0b5;
+            color: #00e0b5;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #00e0b5;
+            color: #ffffff;
         }
 
         .hero {
-            padding: 2rem 1rem;
-            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 120px;
+            background: linear-gradient(135deg, #ffffff 30%, #f8f9fc 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .hero::before {
+            width: 400px;
+            height: 400px;
+            background: #00e0b5;
+            top: -150px;
+            left: -150px;
+        }
+
+        .hero::after {
+            width: 500px;
+            height: 500px;
+            background: #b69dfb;
+            bottom: -200px;
+            right: -200px;
         }
 
         .hero-text {
-            text-align: center;
-            margin-bottom: 2rem;
+            max-width: 600px;
+            text-align: left;
+            z-index: 1;
+            margin-right: 50px;
+        }
+
+        .hero-text h1 {
+            
+            font-size: 4em;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 30px;
+        
+        }
+        .hero-text h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .hero-text p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            background-color: #00e0b5;
+            color: #ffffff;
+            padding: 1px 6px;
+            border-radius: 5px;
+        }
+
+        .view-features {
+            display: inline-block;
+            margin-top: 30px;
+            color: #1e1e2f;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         .video-container {
+            width: 50%;
+            max-width: 800px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        iframe {
             width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 20px;
         }
 
-        .benefits-card {
-            width: 90%; /* Full width minus small margin */
+        .features-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding: 100px 80px;
+            background-color: #ffffff;
         }
-    }
-
-    /* Tablet and desktop styles */
-    @media (min-width: 768px) {
-        .hero {
-            padding: 4rem;
-            flex-direction: row;
+        
+        .feature {
+            display: flex;
             align-items: center;
+            gap: 40px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature:nth-child(1) {
+            background-color: #8fe3cf;
+        }
+
+        .feature:nth-child(2) {
+            background-color: #d1e8ff;
+        }
+
+        .feature:nth-child(3) {
+            background-color: #c3b1e1;
+        }
+
+        .feature:nth-child(4) {
+            background-color: #ffe5b4;
+        }
+
+        .feature:nth-child(5) {
+            background-color: #b4d8ff;
+        }
+
+        .feature:nth-child(6) {
+            background-color: #f3c4fb;
+        }
+
+        .feature:nth-child(7) {
+            background-color: #ffcccb;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-content {
+            max-width: 500px;
+        }
+        
+        .feature-content h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .feature-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .feature img {
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-section {
+            padding: 100px;
+            background-color: #4a4a58;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
         }
 
         .benefits-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .benefits-card {
+            background: #ffffff;
+            color: #1e1e2f;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .benefits-card .beta-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #b69dfb;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .benefits-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .benefits-card p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .benefits-card .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .benefits-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+        }
+
+        .benefits-card ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits-card ul li::before {
+            content: '\2713';
+            color: #00e0b5;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .benefits-card .btn-primary {
+            padding: 12px;
+            width: 100%;
+            text-align: center;
+        }
+        .pricing-section {
+            padding: 100px;
+            background-color: #1e1e2f;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            color: #1e1e2f;
+            border-radius: 20px;
+            padding: 40px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .pricing-card .beta-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #b69dfb;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-card ul li::before {
+            content: '\2713';
+            color: #00e0b5;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .pricing-card .btn-primary {
+            padding: 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer {
+            padding: 60px 100px;
+            background-color: #ffffff;
+            color: #1e1e2f;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer nav a:hover {
+            color: #00b5a0;
+        }
+
+        
+        .about-us {
+            margin-top: 30px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-us h3 {
+            color: #1e1e2f;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .footer {
+            padding: 60px 100px;
+            background-color: #ffffff;
+            color: #1e1e2f;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        .about-us {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+        .about-us h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1e1e2f;
+        }
+        .about-us p {
+            color: #1e1e2f;
+            font-size: 1.1em;
+            line-height: 1.6;
+            line-height: 1.6;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        .footer-nav a {
+            color: #1e1e2f;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .footer-nav a:hover {
+            color: #00e0b5;
+        }
+        .footer-copyright {
+            color: #999;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 500;
+        }
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1e1e2f;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            background: #00e0b5;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        .cancel-button {
+            background: #ccc;
+            color: #333;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+        .custom-alert {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #00e0b5;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 10000;
+        }
+        /* Mobile-first styles */
+        @media (max-width: 767px) {
+          .header {
+            padding: 1rem;
+          }
+        
+          .logo h1 {
+            font-size: 1.5rem;
+          }
+        
+          .hero {
+            padding: 2rem 1rem;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .hero-text {
+            text-align: center;
+            margin-bottom: 2rem;
+          }
+        
+          .hero-text h1 {
+            font-size: 1.75rem;
+          }
+        
+          .hero-text p {
+            font-size: 1rem;
+          }
+        
+          .video-container {
+            width: 100%;
+          }
+        
+          .benefits-plans,
+          .pricing-plans {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        
+          .feature {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+        
+          .feature-content {
+            padding: 0;
+          }
+        
+          .btn-primary {
+            width: 100%;
+          }
+        }
+
+        /* Tablet and desktop styles */
+        @media (min-width: 768px) {
+          .header {
+            padding: 1.5rem 2rem;
+          }
+        
+          .hero {
+            padding: 4rem;
+            flex-direction: row;
+            align-items: center;
+          }
+        
+          .hero-text {
+            flex: 1;
+            padding-right: 3rem;
+          }
+        
+          .video-container {
+            flex: 1;
+          }
+        
+          .benefits-plans,
+          .pricing-plans {
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+          }
+        
+          .feature {
+            flex-direction: row;
+            gap: 3rem;
+          }
+        
+          .feature-content {
+            padding-right: 2rem;
+          }
         }
-    }
-</style>
-</head>
-<body>
-    <header class="header">
-        <div class="logo">TaleIndex <span class="beta-tag">Mapping stories</span></div>
-        <nav>
-            <ul>
-                <li><a href="#features-id">Features</a></li>
-                <li><a href="#" onclick="document.querySelector('.pricing-section').scrollIntoView({ behavior: 'smooth' });">Pricing</a></li>
-                <li><a href="#" class="btn-primary" onclick="event.preventDefault(); openWaitlistModal();">Try the Beta</a></li>
-                <li hidden><a href="#" class="btn-secondary" >Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Create Ads that Captivate, Connect, and Convert</h2>
-            <p>Align your teams, <span class="highlight">optimize</span> your storytelling, and <span class="highlight">measure</span> emotional impact — all in <span class="highlight">one</span> platform.</p>
-            <a href="#" onclick="document.querySelector('.features-container').scrollIntoView({ behavior: 'smooth' });" class="view-features">View features</a>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/G0cmfY7qdmY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </section>
-  
-    <section class="benefits-section">
-        <h2>Key Benefits for You</h2>
-        <div class="benefits-plans">
-            <div class="benefits-card">
-                <h3>Successful Stories</h3>
-                <ul>
-                    <li>Brand Comms - Stories say exactly what you want to say</li>
-                    <li>Customer Interaction - Analysis of brief, script and content produced in real time.</li>
-                </ul>
-            </div>
-            <div class="benefits-card">
-                <h3>Team Alignment & Proof of Work</h3>
-                <ul>
-                    <li>All Aboard & Functional</li>
-                    <li>Each Stakeholder approves each step, comments & reviews. Can view records of all interactions , analysis & approvals.</li>
-                </ul>
-            </div>
-            <div class="benefits-card">
-                <h3>Time & Cost Savings</h3>
-                <ul>
-                    <li>Perfect Save, No Waste</li>
-                    <li>Open communication channels and prediction tools, helping make decisions seamless and cost savvy, especially on post production testing & distribution.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="features-id" class="features-container">
-        <div class="feature">
-            <div class="feature-content">
-                <h3>Overview</h3>
-                <p>Tale Index is a powerful platform that synchronizes every stage of your marketing campaign. From concept to final delivery, keep your team aligned and make sure your ads connect with audiences on an emotional level.</p>
-            </div>
-            <img src="https://cdn.pixabay.com/photo/2023/10/10/05/52/website-8305450_1280.jpg" alt="Overview Screenshot">
-        </div>
-
-        <div class="feature">
-            <img src="https://cdn.pixabay.com/photo/2022/04/04/16/24/technology-7111760_1280.jpg" alt="Brief Analysis & Information Validation Screenshot">
-            <div class="feature-content">
-                <h3>Brief Analysis & Information Validation</h3>
-                <p>Start with clarity. Upload client briefs and align on goals instantly. Our AI-powered platform analyzes briefs and builds up a summary for consistency, ensuring everyone is on the same page from the start.</p>
-            </div>
-        </div>
-
-        <div class="feature">
-            <div class="feature-content">
-                <h3>Concept with Budget Approval</h3>
-                <p>Tale Index keeps everyone in sync through the creative process. Share concepts, gather feedback, and get approvals—our collaboration tools streamline the workflow and keep everything moving.</p>
-            </div>
-            <img src="https://cdn.pixabay.com/photo/2017/09/26/16/08/savings-2789112_1280.jpg" alt="Concept with Budget Approval Screenshot">
-        </div>
-
-        <div class="feature">
-            <img src="https://cdn.pixabay.com/photo/2022/04/04/16/24/business-7111764_1280.jpg" alt="Script Analysis and Approval Screenshot">
-            <div class="feature-content">
-                <h3>Script Analysis and Approval</h3>
-                <p>Make sure your message resonates. Our proprietary algorithm analyzes sensitivity and key metrics such as emotions, engagement, brand positioning, helping you fine-tune ads to connect with your audience’s emotions and make a lasting impact.</p>
-            </div>
-        </div>
-
-        <div class="feature">
-            <div class="feature-content">
-                <h3>Storyboarding and Final Production</h3>
-                <p>From creating storyboards to audiovisual production, ensure each stage reflects the core message. Tale Index brings your team together to create cohesive, compelling content that aligns with campaign goals.</p>
-            </div>
-            <img src="https://cdn.pixabay.com/photo/2016/01/09/18/28/notebook-1130742_1280.jpg" alt="Storyboarding and Final Production Screenshot">
-        </div>
-
-        <div class="feature">
-            <img src="https://cdn.pixabay.com/photo/2019/04/02/09/27/income-tax-4097292_1280.jpg" alt="Budget Approval & Optimization Screenshot">
-            <div class="feature-content">
-                <h3>Budget Approval & Optimization</h3>
-                <p>Easy to track the Production Budget, categorising it into Materials, Location & People for easy reference, follow up, and approval.</p>
-            </div>
-        </div>
-
-        <div class="feature">
-            <div class="feature-content">
-                <h3>Final Delivery with Neuromarketing Insights</h3>
-                <p>Make sure your message resonates. Our neuromarketing technology analyzes emotional responses, helping you fine-tune ads to connect with your audience’s emotions and make a lasting impact.</p>
-            </div>
-            <img src="https://cdn.pixabay.com/photo/2018/02/16/11/05/trace-3157431_1280.jpg" alt="Final Delivery with Neuromarketing Insights Screenshot">
-        </div>
-    </section>
-
-    <section id="pricing_id" class="pricing-section">
-        <h2>Our pricing plans</h2>
-        <div class="pricing-plans">
-            <div class="pricing-card">
-                <h3>Beginner</h3>
-                <p>For the basics</p>
-                <div class="price">€39 <span>Per month</span></div>
-                <ul>
-                    <li>2 active project</li>
-                    <li>10 report analysis</li>
-                    <li>1GB storage</li>
-                </ul>
-                <a hidden href="#" class="btn-primary">Try now</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Premium</h3>
-                <p>For teams</p>
-                <div class="price">€79 <span>Per month</span></div>
-                <ul>
-                    <li>Unlimited active project</li>
-                    <li>50 report analyis</li>
-                    <li>5GB storage</li>
-                </ul>
-                <a hidden href="#" class="btn-primary">Try now</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Pro</h3>
-                <p>For production companies</p>
-                <div class="price">€99 <span>Per month</span></div>
-                <ul>
-                    <li>Unlimited active projeccts</li>
-                    <li>Unlimited reports</li>
-                    <li>10GB storage</li>
-                </ul>
-                <a hidden href="#" class="btn-primary">Try now</a>
-            </div>
-        <a href="#" class="btn-primary" onclick="event.preventDefault(); openWaitlistModal();">Signup for waitlist</a>
-<div id="waitlist-modal" class="modal">
-    <h2 class="modal-title">Signup for Waitlist</h2>
-        <form id="waitlist-form">
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required class="input-field">
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required class="input-field">
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <label for="profession">Your Profession:</label>
-            <input type="text" id="profession" name="profession" placeholder="Enter your profession" required class="input-field">
-        </div>
-        <button type="submit" class="submit-button">Submit</button>
-        <button type="button" onclick="closeModal()" class="cancel-button">Cancel</button>
-      </form>
-</div>
-<div id="modal-overlay" class="modal-overlay"></div>
-        </div>
-    </section>
-
-  <footer class="footer">
-        <div class="about-us">
-            <h3>About Us</h3>
-            <p>We’re a passionate team of technology experts, creatives, and strategists dedicated to transforming the way marketing teams work together. With backgrounds in AI, marketing, and operations, we built Tale Index to address the most pressing issues in ad creation—team misalignment, inconsistent messaging, and lack of emotional engagement insights. Our mission is simple: to help brands deliver ads that connect and campaigns that perform.</p>
-        </div>
-        <nav>
-            <ul class="footer-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#features-id">Features</a></li>
-                <li><a href="#pricing_id">Pricing</a></li>
-            </ul>
-        </nav>
-        <p class="footer-copyright">&copy; 2024 TaleIndex. All rights reserved.</p>
-    </footer>
-<script>
-        function openWaitlistModal() {
-            document.getElementById('waitlist-modal').style.display = 'block';
-            document.getElementById('modal-overlay').style.display = 'block';
-            document.getElementById('waitlist-form').reset();
-        }
-        function closeModal() {
-            document.getElementById('waitlist-modal').style.display = 'none';
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-        document.getElementById('waitlist-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const profession = document.getElementById('profession').value;
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwAgoR1ey7dYfrOk2I80GbKoR8WB1TZs1-6NH-zL1sZC4rqVwurXfxpQqkoh8lw9vpZIQ/exec';
-            fetch(scriptURL, {
-                method: 'POST',
-                body: new URLSearchParams({ 'name': name, 'email': email, 'profession': profession })
-            }).then(response => {
-                showCustomAlert('Thank you for signing up! We have added you to the waitlist.');
-                setTimeout(() => {
-                    closeModal();
-                }, 3000);
-            }).catch(error => {
-                alert('Error occurred, please try again later.');
-                console.error('Error!', error.message);
-            });
-        });
-
-        function showCustomAlert(message) {
-            const alertBox = document.createElement('div');
-            alertBox.className = 'custom-alert';
-            alertBox.innerText = message;
-
-            const submitButton = document.querySelector('.submit-button');
-            submitButton.parentNode.insertBefore(alertBox, submitButton.nextSibling);
-
-            const formContainer = document.getElementById('waitlist-form');
-            formContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-
-            setTimeout(() => {
-                alertBox.style.opacity = '1';
-            }, 100);
-
-            setTimeout(() => {
-                alertBox.style.opacity = '0';
-                formContainer.style.backgroundColor = '#ffffff';
-                setTimeout(() => alertBox.remove(), 600);
-            }, 3000);
-        }
-  </script>
-</html>
+    </style>
 </head>
 <body>
     <header class="header">
